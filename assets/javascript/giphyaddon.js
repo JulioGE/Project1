@@ -31,25 +31,20 @@ function callGiphy() {
       var results = response.data;
       console.log(response)
       for (var i = 0; i < results.length; i++) {
-        if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-
+        
           var thingDiv = $("<div>");
-
           var rating = results[i].rating;
-
           console.log(rating)
-
-          var p = $("<p>").text("Rating: " + rating);
-
           console.log(results[i]);
-
           var thingImg = $("<img>");    
           thingImg.attr("src", results[i].images.fixed_height.url);
-          thingDiv.append(p);
           thingDiv.append(thingImg);
 
           $("#gifs-appear-here").prepend(thingDiv);
-        }  
-      
-    };
-}
+        }
+        }
+      })
+    
+    }
+  
+
