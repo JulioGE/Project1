@@ -7,7 +7,7 @@ if ("geolocation" in navigator) {
      // possibly send this to firebase for use in the restaurant add-on
      console.log('latitude', position.coords.latitude, 
                  'longitude', position.coords.longitude);
-   },
+   }
   function error(error_message) {
     // for when getting location results in an error
     console.error('An error has occured while retrieving location', error_message)
@@ -56,3 +56,25 @@ if ("geolocation" in navigator) {
         
       };
  }
+
+
+      function holdPosition{
+      localStorage.setItem("position", JSON.stringify(coordinates));
+console.log(coordinates)
+      
+    // Load the todos from localstorage.
+    // We need to use JSON.parse to turn the string retrieved  from an array into a string
+    var coordinates = JSON.parse(localStorage.getItem("position"));
+
+    if (!Array.isArray(list)) {
+      list = [];
+    }
+
+    // render our todos on page load
+    renderTodos(list);
+
+    </script>
+  </body>
+
+</html>
+  }
