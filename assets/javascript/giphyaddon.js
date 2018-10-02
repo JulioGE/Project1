@@ -17,11 +17,11 @@
 
 
 function callGiphy() {
-  console.log("Button clicked")
+  console.log("Button clicked callGiphy function recoginzied")
 
   var moodGifs = $(this).attr("data-giphytrigger");
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    moodgifs + "&api_key=6mwldFoAeaR4pL1gvMFM0z6qKW0T6gX3&limit=10";
+    moodGifs + "&api_key=6mwldFoAeaR4pL1gvMFM0z6qKW0T6gX3&limit=10";
 
   $.ajax({
       url: queryURL,
