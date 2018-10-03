@@ -31,7 +31,7 @@ function callGiphy(mood) {
       $("#pot").empty();
       var results = response.data;
       console.log(response)
-      for (var i = 0; i < results.length; i++) {
+      for (var i = 0; i < 5; i++) {
         
           var thingDiv = $("<div>");
           var rating = results[i].rating;

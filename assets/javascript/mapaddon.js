@@ -51,9 +51,9 @@ function zomatoAPI() {
         console.log(response.nearby_restaurants)
      
         $("#food").empty();
-        var title = $("<p>").text("Here's what we recommend to improve your mood--try a new place near you!")
+        var title = $("<t>").text("Here's what we recommend to improve your mood--try a new place near you!")
     var array=response.nearby_restaurants
-      for (var i = 0; i < array.length; i++) {
+      for (var i = 0; i < 3; i++) {
         var restaurantDiv = $("<div>");
         var restaurantAddress=array[i].restaurant.location.address
         var restaurantName = array[i].restaurant.name;
@@ -68,12 +68,13 @@ function zomatoAPI() {
         
         
         var p = $("<p>").text(restaurantName + restaurantAddress + restaurantMenu);
-        var restaurantImg = $("<img>");
+        var restaurantLink = $("<a>");
        
-        restaurantImg.attr("src", array[i].restaurant.photos_url);
+        restaurantLink.attr("src", array[i].restaurant.photos_url);
         console.log (array[i].restaurant.menu_url)
+        restaurantDiv.append(t);
         restaurantDiv.append(p);
-        restaurantDiv.append(restaurantImg)
+        restaurantDiv.append(restaurantLink);
         restaurantDiv.append(restaurantMenu);
 
         $("#food").prepend(restaurantDiv);
@@ -83,7 +84,7 @@ function zomatoAPI() {
 
   function getIPgeolocation() {
     console.log("getIPgeolocation function triggered");
-    queryURL = "http://api.ipstack.com/check?access_key=7ee44dd1caa2533906f7ed1bc758b9d2"
+    queryURL = "http://api.ipstack.com/check?access_key=7ee44dd1caa2533906f7ed1bc758b9d2&count=3"
   
     $.ajax({
         url: queryURL,
