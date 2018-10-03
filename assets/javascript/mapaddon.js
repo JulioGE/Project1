@@ -17,9 +17,6 @@ function zomatoAPI() {
       zomatoAjax(position.coords);
     }
 
-
-
-
     function error(error_message) {
       // for when getting location results in an error
       console.error('An error has occured while retrieving location', error_message);
@@ -54,6 +51,7 @@ function zomatoAPI() {
         console.log(response.nearby_restaurants)
      
         $("#food").empty();
+        var title = $("<p>").text("Here's what we recommend to improve your mood--try a new place near you!")
     var array=response.nearby_restaurants
       for (var i = 0; i < array.length; i++) {
         var restaurantDiv = $("<div>");
@@ -67,12 +65,12 @@ function zomatoAPI() {
         // restaurantMenu.attribute(data-target, "#myModal")
       
 
-        var title = $("<p>").text("Here's what we recommend to improve your mood--try a new place near you!")
+        
         
         var p = $("<p>").text(restaurantName + restaurantAddress + restaurantMenu);
         var restaurantImg = $("<img>");
        
-        restaurantImg.attr("src", array[i].restaurant.menu_url);
+        restaurantImg.attr("src", array[i].restaurant.photos_url);
         console.log (array[i].restaurant.menu_url)
         restaurantDiv.append(p);
         restaurantDiv.append(restaurantImg)
@@ -107,7 +105,7 @@ function zomatoAPI() {
 // }
 
 
-$("#happy").on("click", function () {
+$("button").on("click", function () {
   console.log("emoji is being clicked");
   zomatoAPI();
 })

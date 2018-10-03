@@ -16,18 +16,19 @@
 // [function name of function to call food]
 
 
-function callGiphy() {
-  console.log("Button clicked callGiphy function recoginzied")
+function callGiphy(mood) {
+  console.log("Button clicked callGiphy function recoginzied");
 
-  var moodGifs = $(this).attr("data-giphytrigger");
+  console.log (mood)
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    moodGifs + "&api_key=6mwldFoAeaR4pL1gvMFM0z6qKW0T6gX3&limit=10";
+    mood + "&api_key=6mwldFoAeaR4pL1gvMFM0z6qKW0T6gX3&limit=10";
 
   $.ajax({
       url: queryURL,
       method: "GET"
     })
     .then(function (response) {
+      $("#pot").empty();
       var results = response.data;
       console.log(response)
       for (var i = 0; i < results.length; i++) {
@@ -40,11 +41,18 @@ function callGiphy() {
           thingImg.attr("src", results[i].images.fixed_height.url);
           thingDiv.append(thingImg);
 
-          $("#food").prepend(thingDiv);
+          $("#pot").prepend(thingDiv);
         }
         })
       }
-    
+      $("button").on("click", function (mood) {
+        //if statement regarding under 21
+        console.log("emoji is being clicked");
+        console.log(mood)
+        
+        var mood = $(this).data("giphytrigger"); 
+        callGiphy(mood);
+      })
     
   
 
