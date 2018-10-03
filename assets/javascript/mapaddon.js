@@ -1,7 +1,6 @@
 $(document).ready(function () {
   console.log("mapaddon.js has loaded");
-  Zomato.init("050d7c78c8ecb450b7884fc01f6b4e87")
-});
+ });
 
 function zomatoAPI() {
   console.log("Button clicked zomato function recognized")
@@ -52,25 +51,36 @@ function zomatoAPI() {
       .then(function (response) {
         var results = response.data;
         console.log(response)
-      })
-    // for (var i = 0; i < results.length; i++) {
-    //     var restaurantDiv = $("<div>");
+        console.log(response.nearby_restaurants)
+     
+        $("#food").empty();
+    var array=response.nearby_restaurants
+      for (var i = 0; i < array.length; i++) {
+        var restaurantDiv = $("<div>");
+        var restaurantAddress=array[i].restaurant.location.address
+        var restaurantName = array[i].restaurant.name;
+        var restaurantMenu = $("<button>");
+        restaurantMenu.text("MENU");
+        restaurantMenu.attr("src", array[i].restaurant.menu_url);
+        restaurantMenu.addClass("btn btn-info btn-lg" )
+        // restaurantMenu.attibute(data-toggle, "modal")
+        // restaurantMenu.attribute(data-target, "#myModal")
+      
 
-    //     var rating = results[i].rating;
+        var title = $("<p>").text("Here's what we recommend to improve your mood--try a new place near you!")
+        
+        var p = $("<p>").text(restaurantName + restaurantAddress + restaurantMenu);
+        var restaurantImg = $("<img>");
+       
+        restaurantImg.attr("src", array[i].restaurant.menu_url);
+        console.log (array[i].restaurant.menu_url)
+        restaurantDiv.append(p);
+        restaurantDiv.append(restaurantImg)
+        restaurantDiv.append(restaurantMenu);
 
-    //     console.log(rating)
-
-    //     var p = $("<p>").text("Rating: " + rating);
-
-    //     console.log(results[i]);
-
-    //     var thingImg = $("<img>");
-    //     thingImg.attr("src", results[i].images.fixed_height.url);
-    //     thingDiv.append(p);
-    //     thingDiv.append(thingImg);
-
-    //     $("#gifs-appear-here").prepend(thingDiv);
-    //   }
+        $("#food").prepend(restaurantDiv);
+      }
+  });
   }
 
   function getIPgeolocation() {
