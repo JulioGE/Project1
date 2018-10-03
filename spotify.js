@@ -31,8 +31,11 @@ let access_token = params.access_token,
 
 
 /**
+
  * Obtains parameters from the hash of the URL
+
  * @return Object
+
  */
 
 // NO NEED TO WORRY ABOUT THIS
@@ -66,9 +69,13 @@ function getHashParams() {
 
 
 /**
+
  * Generates a random string containing numbers and letters
+
  * @param  {number} length The length of the string
+
  * @return {string} The generated string
+
  */
 
 // NO NEED TO WORRY ABOUT THIS
@@ -249,7 +256,7 @@ function spotifyLogin() {
 
   const client_id = spotify_CLIENT; // Your client id
 
-  const redirect_uri = 'http://localhost:5500/index.html'; // Your redirect uri
+  const redirect_uri = 'http://localhost:5500/Project1'; // Your redirect uri
 
 
 

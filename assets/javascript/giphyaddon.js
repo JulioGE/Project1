@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 63b235e3d89af3ab874e77d7947731d317a61bfa
 // (The function to split off between giphy or pot)
 
 // $(".giphyOrPot").on("click", function){}
@@ -16,7 +19,20 @@
 // [function name of function to call food]
 
 
+<<<<<<< HEAD
 function callGiphy(mood) {
+=======
+
+$("button").on("click", function (mood) {
+function callGiphy(mood) {
+  
+   //if statement regarding under 21
+   console.log("emoji is being clicked");
+   console.log(mood)
+   
+   var mood = $(this).data("giphytrigger"); 
+
+>>>>>>> 63b235e3d89af3ab874e77d7947731d317a61bfa
   console.log("Button clicked callGiphy function recoginzied");
 
   console.log (mood)
@@ -28,10 +44,17 @@ function callGiphy(mood) {
       method: "GET"
     })
     .then(function (response) {
+<<<<<<< HEAD
       $("#pot").empty();
       var results = response.data;
       console.log(response)
       for (var i = 0; i < 5; i++) {
+=======
+      $("giphy-appear-here").empty();
+      var results = response.data;
+      console.log(response)
+      for (var i = 0; i < results.length; i++) {
+>>>>>>> 63b235e3d89af3ab874e77d7947731d317a61bfa
         
           var thingDiv = $("<div>");
           var rating = results[i].rating;
@@ -41,11 +64,19 @@ function callGiphy(mood) {
           thingImg.attr("src", results[i].images.fixed_height.url);
           thingDiv.append(thingImg);
 
+<<<<<<< HEAD
           $("#pot").prepend(thingDiv);
         }
         })
       }
       $("button").on("click", function (mood) {
+=======
+          $("giphy-appear-hear").prepend(thingDiv);
+        }
+        })
+      }
+      // $("button").on("click", function (mood) {
+>>>>>>> 63b235e3d89af3ab874e77d7947731d317a61bfa
         //if statement regarding under 21
         console.log("emoji is being clicked");
         console.log(mood)
@@ -53,6 +84,10 @@ function callGiphy(mood) {
         var mood = $(this).data("giphytrigger"); 
         callGiphy(mood);
       })
+<<<<<<< HEAD
     
   
 
+=======
+    
+>>>>>>> 63b235e3d89af3ab874e77d7947731d317a61bfa
