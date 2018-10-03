@@ -53,8 +53,8 @@ function zomatoAPI() {
         var results = response.data;
         console.log(response)
       })
-    // for (var i = 0; i < results.length; i++) {
-    //     var restaurantDiv = $("<div>");
+    for (var i = 0; i < results.length; i++) {
+        var restaurantDiv = $("<div>");
 
     //     var rating = results[i].rating;
 

@@ -40,11 +40,11 @@ function callGiphy() {
           thingImg.attr("src", results[i].images.fixed_height.url);
           thingDiv.append(thingImg);
 
-          $("#gifs-appear-here").prepend(thingDiv);
+          $("#food").prepend(thingDiv);
         }
-        }
-      })
+        })
+      }
     
-    }
+    
   
 
